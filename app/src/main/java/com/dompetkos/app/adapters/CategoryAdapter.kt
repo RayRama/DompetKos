@@ -27,10 +27,10 @@ class CategoryAdapter(
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val category = categories!![position]
-        holder.binding.categoryText.text = category?.categoryName
-        category?.categoryImage?.let { holder.binding.categoryIcon.setImageResource(it) }
+        holder.binding.categoryText.text = category.categoryName
+        category.categoryImage?.let { holder.binding.categoryIcon.setImageResource(it) }
         holder.binding.categoryIcon.backgroundTintList =
-            category?.categoryColor?.let { context!!.getColorStateList(it) }
+            category.categoryColor?.let { context!!.getColorStateList(it) }
         holder.itemView.setOnClickListener { c: View? ->
             categoryClickListener.onCategoryClicked(
                 category

@@ -25,16 +25,13 @@ import com.google.android.material.snackbar.Snackbar
 import java.util.Calendar
 
 class AddTransactionFragment : BottomSheetDialogFragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     var binding: FragmentAddTransactionBinding? = null
     var transaction: Transaction? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentAddTransactionBinding.inflate(inflater)
         transaction = Transaction()
         binding!!.incomeBtn.setOnClickListener { view: View? ->
@@ -100,7 +97,7 @@ class AddTransactionFragment : BottomSheetDialogFragment() {
             accounts.add(Account(0.0, "Lainnya"))
             val accountClickListener = object : AccountsAdapter.AccountsClickListener {
                 override fun onAccountSelected(account: Account) {
-                    binding!!.account.setText(account!!.accountName)
+                    binding!!.account.setText(account.accountName)
                     transaction!!.account = account.accountName
                     accountsDialog.dismiss()
                 }

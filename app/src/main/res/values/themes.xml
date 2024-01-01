@@ -8,7 +8,4 @@
 
     <style name="Theme.app" parent="Base.Theme.app" />
 
-    <style name="App.CustomIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
-        <item name="android:color">@color/category4</item>
-    </style>
 </resources>

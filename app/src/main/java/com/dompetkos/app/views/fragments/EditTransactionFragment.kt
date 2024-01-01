@@ -27,9 +27,6 @@ import java.util.Calendar
 import java.util.Date
 
 class EditTransactionFragment(recentTransaction: Transaction) : BottomSheetDialogFragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     var binding: FragmentEditTransactionBinding? = null
 
@@ -47,7 +44,7 @@ class EditTransactionFragment(recentTransaction: Transaction) : BottomSheetDialo
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // passing recent transaction data to view
         binding = FragmentEditTransactionBinding.inflate(inflater)
         tempTransaction = Transaction()
@@ -129,7 +126,7 @@ class EditTransactionFragment(recentTransaction: Transaction) : BottomSheetDialo
             accounts.add(Account(0.0, "Lainnya"))
             val accountClickListener = object : AccountsAdapter.AccountsClickListener {
                 override fun onAccountSelected(account: Account) {
-                    binding!!.account.setText(account!!.accountName)
+                    binding!!.account.setText(account.accountName)
 //                    transaction!!.account = account.accountName
                     tempAccount = account.accountName
                     accountsDialog.dismiss()

@@ -19,9 +19,6 @@ import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import java.util.Calendar
 
 class StatsFragment : Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     var binding: FragmentStatsBinding? = null
     var calendar: Calendar? = null
@@ -34,7 +31,7 @@ class StatsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentStatsBinding.inflate(inflater)
         viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         calendar = Calendar.getInstance()
@@ -92,7 +89,7 @@ class StatsFragment : Fragment() {
                 binding!!.anyChart.visibility = View.VISIBLE
                 val data: MutableList<DataEntry> = ArrayList()
                 val categoryMap: MutableMap<String?, Double> = HashMap()
-                for (transaction in transactions!!) {
+                for (transaction in transactions) {
                     val category = transaction.category
                     val amount = transaction.amount
                     if (categoryMap.containsKey(category)) {

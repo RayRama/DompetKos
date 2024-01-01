@@ -1,15 +1,14 @@
 package com.dompetkos.app.views.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dompetkos.app.databinding.FragmentTransactionsBinding
 import com.dompetkos.app.adapters.TransactionsAdapter
+import com.dompetkos.app.databinding.FragmentTransactionsBinding
 import com.dompetkos.app.utils.Constants
 import com.dompetkos.app.utils.Helper
 import com.dompetkos.app.viewmodels.MainViewModel
@@ -18,9 +17,6 @@ import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import java.util.Calendar
 
 class TransactionsFragment : Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     var binding: FragmentTransactionsBinding? = null
     var myCalendar: Calendar? = null
@@ -36,7 +32,7 @@ class TransactionsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentTransactionsBinding.inflate(inflater)
         viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         myCalendar = Calendar.getInstance()
@@ -71,11 +67,6 @@ class TransactionsFragment : Fragment() {
 //            Log.d("Path", "path")
         }
 
-        binding!!.buttonPath.setOnClickListener{ c: View? ->
-//            viewModel!!.checkPath()
-
-            Log.d("Path", "path")
-        }
 
         binding!!.tabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
