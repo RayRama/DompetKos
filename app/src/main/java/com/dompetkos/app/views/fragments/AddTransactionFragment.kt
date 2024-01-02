@@ -125,7 +125,7 @@ class AddTransactionFragment : BottomSheetDialogFragment() {
                 (activity as MainActivity?)?.getTransactions
                 dismiss()
             } else {
-                Log.d("Err", "Gagal")
+//                Log.d("Err", "Gagal")
                 Snackbar.make(
                     binding!!.root,
                     "Please fill all fields",

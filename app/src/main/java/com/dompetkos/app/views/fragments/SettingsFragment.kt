@@ -1,13 +1,17 @@
 package com.dompetkos.app.views.fragments
 
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.dompetkos.app.databinding.FragmentSettingsBinding
 import com.dompetkos.app.viewmodels.MainViewModel
+import com.dompetkos.app.views.activites.AuthActivity
 
 
 class SettingsFragment : Fragment() {
@@ -18,6 +22,9 @@ class SettingsFragment : Fragment() {
 
     var viewModel: MainViewModel? = null
 
+    private lateinit var sharedPreferences: SharedPreferences
+    private var isSignedIn: Boolean = false
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,9 +33,18 @@ class SettingsFragment : Fragment() {
         binding  = FragmentSettingsBinding.inflate(inflater)
         viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
 
+        sharedPreferences = requireActivity().getSharedPreferences("com.dompetkos.app", AppCompatActivity.MODE_PRIVATE)
+        isSignedIn = sharedPreferences.getBoolean("isSignedIn", false)
+
         binding!!.backupDriveButton.setOnClickListener { c: View? ->
-            viewModel!!.backup(requireActivity().application)
+//            viewModel!!.backup(requireActivity().application)
 //            viewModel!!.checkIsSignedIn(requireActivity().application)
+            if (isSignedIn) {
+                viewModel!!.backup(requireActivity().application)
+            } else {
+                val inten = Intent(requireActivity(), AuthActivity::class.java)
+                startActivity(inten)
+            }
         }
 
         viewModel!!.getLastBackup()

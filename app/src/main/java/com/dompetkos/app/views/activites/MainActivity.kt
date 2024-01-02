@@ -120,10 +120,10 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == REQUEST_EXTERNAL_STORAGE) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 //                Toast.makeText(this, "Permission granted", Toast.LENGTH_SHORT).show()
-                Log.d("MainActivity", "Permission granted")
+//                Log.d("MainActivity", "Permission granted")
             } else {
 //                Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
-                Log.d("MainActivity", "Permission denied")
+//                Log.d("MainActivity", "Permission denied")
             }
         }
     }
