@@ -65,7 +65,7 @@ class AuthActivity : AppCompatActivity() {
             val sharedPreferences = getSharedPreferences("com.dompetkos.app", MODE_PRIVATE)
             val editor = sharedPreferences.edit()
             editor.putBoolean("isSignedIn", true)
-            editor.apply()
+            editor.commit()
 
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

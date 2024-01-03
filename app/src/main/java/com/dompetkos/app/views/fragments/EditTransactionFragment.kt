@@ -89,7 +89,11 @@ class EditTransactionFragment(recentTransaction: Transaction) : BottomSheetDialo
         }
 
         // Get recent transaction amount
-        binding!!.amount.setText((transaction!!.amount * -1).toString())
+        if (tempType == Constants.EXPENSE) {
+            binding!!.amount.setText((tempAmount!! * -1).toString())
+        } else {
+            binding!!.amount.setText(tempAmount.toString())
+        }
 
         // Get recent transaction category
         binding!!.category.setText(transaction!!.category)
