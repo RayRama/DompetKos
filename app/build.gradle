@@ -32,17 +32,26 @@ android {
         applicationId "com.dompetkos.app"
         minSdk 24
         targetSdk 33
-        versionCode 3
-        versionName "1.1.1"
+        versionCode 6
+        versionName "1.1.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'dompetkos'
+            keyPassword 'dompetkos@uinsgd'
+            storeFile file('C:\\Users\\rayra\\Documents\\Tugas - Tugas\\Semester 5\\Matkul\\Prak Pengembangan Mobile\\dompetkos.jks')
+            storePassword 'dompetkos@uinsgd'
+        }
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            debuggable false
+            signingConfig signingConfigs.release
         }
         debug {
             debuggable true

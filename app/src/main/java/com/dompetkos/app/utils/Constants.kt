@@ -5,7 +5,10 @@ import com.dompetkos.app.models.Category
 
 object Constants {
     const val APP_ID = "dompetkos-ewmuk"
-    const val CLIENT_ID = "11656146194-3vd01906t8j6fh1u1nkr3uau0c2nj2hm.apps.googleusercontent.com"
+    const val CLIENT_ID = "11656146194-kqpaghfhg3rknd0eb0hcej2uv22i6m00.apps.googleusercontent.com"
+//    const val CLIENT_ID = "11656146194-qqfvjphheg9oganf8phibl0qu3ek3qsc.apps.googleusercontent.com"
+//    const val CLIENT_ID = "11656146194-jhbimvrnl6fk954378stnl2m6pv52nkh.apps.googleusercontent.com"
+//    const val CLIENT_ID = "11656146194-3vd01906t8j6fh1u1nkr3uau0c2nj2hm.apps.googleusercontent.com"
 
     var INCOME = "INCOME"
     var EXPENSE = "EXPENSE"

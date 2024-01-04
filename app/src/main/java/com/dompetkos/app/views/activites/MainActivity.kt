@@ -43,8 +43,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        checkStoragePermissions(this)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
@@ -65,6 +63,7 @@ class MainActivity : AppCompatActivity() {
             } else if (item.itemId == R.id.accounts) {
                 Toast.makeText(this, "Coming soon", Toast.LENGTH_SHORT).show()
             } else if (item.itemId == R.id.more) {
+                checkStoragePermissions(this)
                 transaction.replace(R.id.content, SettingsFragment())
                 transaction.addToBackStack(null)
             }
